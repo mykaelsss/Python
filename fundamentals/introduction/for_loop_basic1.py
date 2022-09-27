@@ -28,9 +28,20 @@
 #     print(i)
 
 
-lowNum = 4
-highNum = 15
-mult = 5
-for i in range(lowNum, highNum+1):
-    if ( i % mult == 0):
-        print(i)
+# lowNum = 4
+# highNum = 15
+# mult = 5
+# for i in range(lowNum, highNum+1):
+#     if ( i % mult == 0):
+#         print(i)
+
+
+def multiply(num_list, num):
+    for x in num_list:
+        x *= num
+    return num_list
+a = [2,4,10,16]
+b = multiply(a,5)
+print(b)
+# output:
+# >>>[2,4,10,16]
