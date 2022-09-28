@@ -1,12 +1,26 @@
 
 class Player:
-    def __init__(self, name, age, position, team):
-        self.name = name
-        self.age = age
-        self.position = position
-        self.team = team
+    def __init__(self, data):
+        self.name = data['name']
+        self.age = data['age']
+        self.position = data['position']
+        self.team = data['team']
 
+  # * NINJA BONUS class mehotd
+    @classmethod
+    def add_players(cls, data):
+        player_objects = []
+        for dict in data:
+            player_objects.append(cls(dict))
+        return player_objects
 
+    # Not required for the assignment but useful
+    # __repr__(self) is a python system method that
+    # tells python how to handle representing that class
+    # when, for example the object is printed to the terminal.
+    def __repr__(self):
+        display = f"Player: {self.name}, {self.age} y/o, pos: {self.position}, team: {self.team}"
+        return display
 
 
 kevin = {
@@ -51,12 +65,12 @@ demar = {
     "team": "Chicago Bulls"
     }
 
-player_kevin = Player(kevin["name"], kevin["age"], kevin["position"], kevin["team"])
-player_jason = Player(jason["name"], jason["age"], jason["position"], jason["team"])
-player_kyrie = Player(kyrie["name"], kyrie["age"], kyrie["position"], kyrie["team"])
-player_dame = Player(dame["name"], dame["age"], dame["position"], dame["team"])
-player_joel = Player(joel["name"], joel["age"], joel["position"], joel["team"])
-player_demar = Player(demar["name"], demar["age"], demar["position"], demar["team"])
+player_kevin = Player(kevin)
+player_jason = Player(jason)
+player_kyrie = Player(kyrie)
+player_dame = Player(dame)
+player_joel = Player(joel)
+player_demar = Player(demar)
 
 
 print(player_demar.position)
@@ -65,7 +79,6 @@ print(player_jason.team)
 print(player_kevin.team)
 print(player_dame.position)
 print(player_joel.name)
-
 
 
 
